@@ -7,7 +7,7 @@ export const AppContainer = styled.div`
   height: 100vh;
 `
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -67,4 +67,10 @@ export const LoginBtn = styled.button`
   padding: 11px 8px;
   font-weight: 500;
   margin-top: 5px;
+`
+export const ErrorMessage = styled.p`
+  font-family: 'Roboto';
+  font-size: 13px;
+  font-weight: 400;
+  color: #ff0000;
 `
