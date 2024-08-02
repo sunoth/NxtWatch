@@ -6,14 +6,39 @@ import Home from './components/Home'
 import ProtectedRoute from './components/ProtectedRoute'
 
 import './App.css'
+import NxtWatchContext from './context/NxtWatchContext'
 
 class App extends Component {
+  state = {
+    isDarkTheme: false,
+    activeTab: 'Home',
+  }
+
+  toggleTheme = () => {
+    this.setState(prevState => ({isDarkTheme: !prevState.isDarkTheme}))
+  }
+
+  changeActiveTab = tab => {
+    this.setState({activeTab: tab})
+  }
+
   render() {
+    const {activeTab, isDarkTheme} = this.state
+
     return (
-      <Switch>
-        <Route exact path="/login" component={Login} />
-        <ProtectedRoute exact path="/" component={Home} />
-      </Switch>
+      <NxtWatchContext.Provider
+        value={{
+          changeActiveTab: this.changeActiveTab,
+          toggleTheme: this.toggleTheme,
+          activeTab,
+          isDarkTheme,
+        }}
+      >
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <ProtectedRoute exact path="/" component={Home} />
+        </Switch>
+      </NxtWatchContext.Provider>
     )
   }
 }
