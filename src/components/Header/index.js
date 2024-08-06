@@ -39,7 +39,7 @@ const Header = props => (
   <NxtWatchContext.Consumer>
     {value => {
       const {isDarkTheme, toggleTheme, changeActiveTab, activeTab} = value
-      const themeColor = isDarkTheme ? '#000000' : '#ffffff'
+      const themeColor = isDarkTheme ? '#181818' : '#f9f9f9'
       const textColor = isDarkTheme ? '#ffffff' : '#000000'
       const logoutTextColor = isDarkTheme ? '#ffffff' : '#3b82f6'
       const logoutBgColor = isDarkTheme ? '#231f20' : '#f1f5f9'

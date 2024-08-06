@@ -12,9 +12,9 @@ export const NavBarContainer = styled.div`
   height: 70px;
   top: 0px;
   background-color: ${props => props.color};
-  @media screen and (min-width: 768px) {
-    padding-left: 30px;
-    padding-right: 30px;
+  @media screen and (min-width: 767px) {
+    padding-left: 35px;
+    padding-right: 35px;
   }
 `
 export const NavLink = styled(Link)`
@@ -22,15 +22,15 @@ export const NavLink = styled(Link)`
   cursor: pointer;
 `
 export const HeaderLogo = styled.img`
-  height: 35px;
-  width: 130px;
+  height: 30px;
+  width: 120px;
 `
 export const HeaderActionsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  @media screen and (min-width: 768px) {
-    gap: 15px;
+  @media screen and (min-width: 767px) {
+    gap: 16px;
   }
 `
 
