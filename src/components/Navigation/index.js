@@ -5,7 +5,13 @@ import {SiYoutubegaming} from 'react-icons/si'
 import {BiListPlus} from 'react-icons/bi'
 
 import NxtWatchContext from '../../context/NxtWatchContext'
-import {NavItemsContainer, NavItem, NavLink, NavName} from './styledComponents'
+import {
+  NavItemsContainer,
+  NavItem,
+  NavLink,
+  NavName,
+  NavContainer,
+} from './styledComponents'
 
 class Navigation extends Component {
   render() {
@@ -33,7 +39,7 @@ class Navigation extends Component {
           }
 
           return (
-            <>
+            <NavContainer>
               <NavItemsContainer>
                 <NavLink to="/">
                   <NavItem
@@ -104,7 +110,7 @@ class Navigation extends Component {
                   </NavItem>
                 </NavLink>
               </NavItemsContainer>
-            </>
+            </NavContainer>
           )
         }}
       </NxtWatchContext.Consumer>

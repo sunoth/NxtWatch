@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
+export const NavContainer = styled.div`
+  height: 92%;
+`
 export const NavItemsContainer = styled.ul`
   list-style-type: none;
   padding-left: 0px;
@@ -22,14 +25,5 @@ export const NavName = styled.p`
 `
 
 export const NavLink = styled(Link)`
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: space-between;
-  //   margin-top: 80px;
-  //   min-height: 90vh;
-  //   background-color: ${props => props.color};
-  //   padding-left: 10px;
-  //   padding-right: 15px;
-  //   position: fixed;
   text-decoration: none;
 `
