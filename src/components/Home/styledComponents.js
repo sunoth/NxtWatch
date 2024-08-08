@@ -154,3 +154,13 @@ export const NoVideosImage = styled.img`
     width: 450px;
   }
 `
+export const NoVideosHeading = styled.h1`
+  font-family: 'Roboto';
+  font-size: 25px;
+  color: ${props => props.headingColor};
+`
+export const NoVideosDescription = styled.p`
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: ${props => props.noteColor};
+`

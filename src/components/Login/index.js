@@ -13,7 +13,9 @@ import {
   ShowPassword,
   LoginBtn,
   ErrorMessage,
+  LoginDetails,
 } from './styledComponents'
+import NxtWatchContext from '../../context/NxtWatchContext'
 
 class Login extends Component {
   state = {
@@ -71,43 +73,66 @@ class Login extends Component {
     }
 
     return (
-      <AppContainer>
-        <FormContainer onSubmit={this.onSubmitForm}>
-          <LoginLogo
-            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-            alt="website logo"
-          />
-          <InputLabel htmlFor="username">USERNAME</InputLabel>
-          <UserInput
-            placeholder="Username"
-            id="username"
-            type="text"
-            value={username}
-            onChange={this.onChangeUsername}
-          />
+      <NxtWatchContext.Consumer>
+        {value => {
+          const {isDarkTheme} = value
+          const bgColor = isDarkTheme ? '#181818' : '#ffffff'
+          const textColor = isDarkTheme ? '#f1f1f1' : '#475569'
+          const inputColor = isDarkTheme ? '#1e293b' : '#475569'
+          const formBgColor = isDarkTheme ? '#000000' : '#424242'
+          const Logo = isDarkTheme
+            ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+            : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
-          <InputLabel htmlFor="password">PASSWORD</InputLabel>
-          <UserInput
-            placeholder="Password"
-            id="password"
-            type={passwordType}
-            value={password}
-            onChange={this.onChangePassword}
-          />
+          return (
+            <AppContainer bgColor={bgColor}>
+              <FormContainer
+                formBgColor={formBgColor}
+                onSubmit={this.onSubmitForm}
+              >
+                <LoginLogo src={Logo} alt="website logo" />
+                <InputLabel color={textColor} htmlFor="username">
+                  USERNAME
+                </InputLabel>
+                <UserInput
+                  placeholder="Username"
+                  id="username"
+                  color={inputColor}
+                  type="text"
+                  value={username}
+                  onChange={this.onChangeUsername}
+                />
 
-          <CheckboxContainer>
-            <Checkbox
-              type="checkbox"
-              id="checkbox"
-              onChange={this.onChangeShowPassword}
-            />
-            <ShowPassword htmlFor="checkbox">Show Password</ShowPassword>
-          </CheckboxContainer>
-          <LoginBtn type="submit">Login</LoginBtn>
+                <InputLabel htmlFor="password">PASSWORD</InputLabel>
+                <UserInput
+                  placeholder="Password"
+                  id="password"
+                  type={passwordType}
+                  value={password}
+                  onChange={this.onChangePassword}
+                />
 
-          {showError && <ErrorMessage>*{errorMsg}</ErrorMessage>}
-        </FormContainer>
-      </AppContainer>
+                <CheckboxContainer>
+                  <Checkbox
+                    type="checkbox"
+                    id="checkbox"
+                    onChange={this.onChangeShowPassword}
+                  />
+                  <ShowPassword color={textColor} htmlFor="checkbox">
+                    Show Password
+                  </ShowPassword>
+                </CheckboxContainer>
+                <LoginBtn type="submit">Login</LoginBtn>
+
+                {showError && <ErrorMessage>*{errorMsg}</ErrorMessage>}
+                <LoginDetails color={textColor}>
+                  Id: rahul & Password: rahul@2021
+                </LoginDetails>
+              </FormContainer>
+            </AppContainer>
+          )
+        }}
+      </NxtWatchContext.Consumer>
     )
   }
 }

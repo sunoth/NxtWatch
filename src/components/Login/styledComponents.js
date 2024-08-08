@@ -5,13 +5,14 @@ export const AppContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: ${props => props.bgColor};
 `
 
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  box-shadow: 0px 4px 8px 0px #424242;
+  box-shadow: 0px 4px 8px 0px ${props => props.formBgColor};
   padding: 35px;
   width: 320px;
 `
@@ -22,14 +23,14 @@ export const LoginLogo = styled.img`
 `
 export const InputLabel = styled.label`
   font-family: 'Roboto';
-  font-size: 15px;
-  color: #475569;
+  font-size: 14px;
+  color: ${props => props.color};
   font-weight: 500;
 `
 export const UserInput = styled.input`
   font-family: 'Roboto';
   font-size: 16px;
-  color: #475569;
+  color: ${props => props.color};
   outline: none;
   border-radius: 3px;
   padding: 8px;
@@ -51,8 +52,9 @@ export const Checkbox = styled.input`
 `
 export const ShowPassword = styled.label`
   font-family: 'Roboto';
-  font-size: 15px;
-  color: #1e293b;
+  font-size: 14px;
+  cursor: pointer;
+  color: ${props => props.color};
   font-weight: 500;
 `
 export const LoginBtn = styled.button`
@@ -73,4 +75,10 @@ export const ErrorMessage = styled.p`
   font-size: 13px;
   font-weight: 400;
   color: #ff0000;
+`
+export const LoginDetails = styled.span`
+  font-family: 'Roboto';
+  font-size: 12px;
+  color: ${props => props.color};
+  margin-top: 5px;
 `

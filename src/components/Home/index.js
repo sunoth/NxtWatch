@@ -22,12 +22,15 @@ import {
   HomeVideosContainer,
   NoVideosViewContainer,
   NoVideosImage,
+  NoVideosHeading,
+  NoVideosDescription,
 } from './styledComponents'
 import Header from '../Header'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import Navigation from '../Navigation'
 import FailureCard from '../FailureCard'
 import VideoCard from '../VideoCard'
+import {RetryButton} from '../FailureCard/styledComponents'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -95,11 +98,17 @@ class Home extends Component {
     this.getVideos()
   }
 
+  onKeyDownSearch = event => {
+    if (event.key === 'Enter') {
+      this.getVideos()
+    }
+  }
+
   onRetry = () => {
     this.setState({searchInput: ''}, this.getVideos)
   }
 
-  renderVideosView = () => {
+  renderVideosView = (headingColor, noteColor) => {
     const {homeVideos} = this.state
     const videosCount = homeVideos.length
 
@@ -115,6 +124,15 @@ class Home extends Component {
           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
           alt="no videos"
         />
+        <NoVideosHeading headingColor={headingColor}>
+          No Search results found
+        </NoVideosHeading>
+        <NoVideosDescription noteColor={noteColor}>
+          Try different Keywords or remove search filter
+        </NoVideosDescription>
+        <RetryButton type="button" onClick={this.onRetry}>
+          Retry
+        </RetryButton>
       </NoVideosViewContainer>
     )
   }
@@ -127,12 +145,12 @@ class Home extends Component {
 
   renderFailureView = () => <FailureCard onRetry={this.onRetry} />
 
-  renderHomeVideos = () => {
+  renderHomeVideos = (headingColor, noteColor) => {
     const {apiStatus} = this.state
 
     switch (apiStatus) {
       case apiStatusConstants.success:
-        return this.renderVideosView()
+        return this.renderVideosView(headingColor, noteColor)
       case apiStatusConstants.inProgress:
         return this.renderLoadingView()
       case apiStatusConstants.failure:
@@ -152,6 +170,9 @@ class Home extends Component {
           const appBgColor = isDarkTheme ? '#000000' : '#f9f9f9'
           const backgroundColor = isDarkTheme ? '#181818' : '#ffffff'
           const display = bannerDisplay === 'flex' ? 'flex' : 'none'
+
+          const headingColor = isDarkTheme ? '#f1f5f9' : '#1e293b'
+          const noteColor = isDarkTheme ? '#e2e8f0' : '#475569'
 
           return (
             <AppHomeContainer bgColor={backgroundColor}>
@@ -190,6 +211,7 @@ class Home extends Component {
                       placeholder="Search"
                       value={searchInput}
                       onChange={this.onChangeSearch}
+                      onKeyDown={this.onKeyDownSearch}
                     />
                     <SearchIconContainer
                       onClick={this.onClickGetResults}
@@ -198,7 +220,7 @@ class Home extends Component {
                       <AiOutlineSearch size={16} />
                     </SearchIconContainer>
                   </SearchContainer>
-                  {this.renderHomeVideos()}
+                  {this.renderHomeVideos(headingColor, noteColor)}
                 </HomeRightContainer>
               </HomeContainer>
             </AppHomeContainer>

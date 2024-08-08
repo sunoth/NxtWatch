@@ -11,6 +11,11 @@ import {
   NavLink,
   NavName,
   NavContainer,
+  ContactContainer,
+  ContactHeading,
+  SocialContainer,
+  SocialImage,
+  SocialDescription,
 } from './styledComponents'
 
 class Navigation extends Component {
@@ -110,6 +115,26 @@ class Navigation extends Component {
                   </NavItem>
                 </NavLink>
               </NavItemsContainer>
+              <ContactContainer>
+                <ContactHeading color={textColor}>CONTACT US</ContactHeading>
+                <SocialContainer>
+                  <SocialImage
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                    alt="facebook logo"
+                  />
+                  <SocialImage
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                    alt="twitter logo"
+                  />
+                  <SocialImage
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                    alt="linked in logo"
+                  />
+                </SocialContainer>
+                <SocialDescription color={textColor}>
+                  Enjoy! Now to see your channels and recommendations!
+                </SocialDescription>
+              </ContactContainer>
             </NavContainer>
           )
         }}
