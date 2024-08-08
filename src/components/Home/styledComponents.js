@@ -134,8 +134,23 @@ export const LoaderContainer = styled.div`
 
 export const HomeVideosContainer = styled.ul`
   list-style-type: none;
-  padding-left: 0px;
+  padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+`
+
+export const NoVideosViewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin: 20px;
+`
+export const NoVideosImage = styled.img`
+  width: 200px;
+  @media screen and (min-width: 767px) {
+    width: 450px;
+  }
 `

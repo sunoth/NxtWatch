@@ -20,6 +20,8 @@ import {
   SearchIconContainer,
   LoaderContainer,
   HomeVideosContainer,
+  NoVideosViewContainer,
+  NoVideosImage,
 } from './styledComponents'
 import Header from '../Header'
 import NxtWatchContext from '../../context/NxtWatchContext'
@@ -99,14 +101,21 @@ class Home extends Component {
 
   renderVideosView = () => {
     const {homeVideos} = this.state
-    // const videosCount = homeVideos.length
+    const videosCount = homeVideos.length
 
-    return (
+    return videosCount > 0 ? (
       <HomeVideosContainer>
         {homeVideos.map(eachVideo => (
           <VideoCard video={eachVideo} key={eachVideo.id} />
         ))}
       </HomeVideosContainer>
+    ) : (
+      <NoVideosViewContainer>
+        <NoVideosImage
+          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+          alt="no videos"
+        />
+      </NoVideosViewContainer>
     )
   }
 
