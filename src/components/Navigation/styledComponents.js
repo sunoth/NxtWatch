@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 export const NavContainer = styled.div`
-  height: 98%;
+  height: 88vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

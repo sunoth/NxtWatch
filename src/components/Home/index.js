@@ -178,7 +178,7 @@ class Home extends Component {
             <AppHomeContainer bgColor={backgroundColor}>
               <Header />
               <HomeContainer>
-                <HomeLeftContainer bgColor={backgroundColor} display={display}>
+                <HomeLeftContainer bgColor={backgroundColor}>
                   <Navigation />
                 </HomeLeftContainer>
                 <HomeRightContainer data-testid="home" bgColor={appBgColor}>

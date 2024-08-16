@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 
 import './App.css'
 import NxtWatchContext from './context/NxtWatchContext'
+import Trending from './components/Trending'
 
 class App extends Component {
   state = {
@@ -37,6 +38,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/login" component={Login} />
           <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute exact path="/trending" component={Trending} />
         </Switch>
       </NxtWatchContext.Provider>
     )
