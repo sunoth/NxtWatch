@@ -72,7 +72,7 @@ class Trending extends Component {
   renderTrendingSuccessView = isDarkTheme => {
     const {trendingData} = this.state
     const headingContainerBgColor = isDarkTheme ? '#212121' : '#f4f4f4'
-    const IconBgColor = isDarkTheme ? '#424242' : '#e2e8f0'
+    const IconBgColor = isDarkTheme ? '#000000' : '#e2e8f0'
     const HeadingColor = isDarkTheme ? '#ffffff' : '#000000'
 
     return (
@@ -131,7 +131,7 @@ class Trending extends Component {
           return (
             <AppTrendingContainer bgColor={backgroundColor}>
               <Header />
-              <TrendingContainer bgColor={backgroundColor}>
+              <TrendingContainer>
                 <TrendingLeftContainer>
                   <Navigation />
                 </TrendingLeftContainer>

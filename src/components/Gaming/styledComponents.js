@@ -1,19 +1,20 @@
 import styled from 'styled-components'
 
-export const AppTrendingContainer = styled.div`
-  background-color: ${props => props.bgColor};
+export const AppGamingContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: ${props => props.bgColor};
 `
-export const TrendingContainer = styled.div`
+
+export const GamingContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
   padding-top: 80px;
 `
-export const TrendingLeftContainer = styled.div`
+export const GamingLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 20%;
@@ -21,20 +22,18 @@ export const TrendingLeftContainer = styled.div`
     display: none;
   }
 `
-
-export const TrendingRightContainer = styled.div`
+export const GamingRightContainer = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
+  width: 100%;
   background-color: ${props => props.bgColor};
-  height: 88vh;
   overflow-y: auto;
+  height: 88vh;
   @media screen and (min-width: 767px) {
     width: 80%;
   }
 `
-
-export const HeadingContainer = styled.div`
+export const GamingHeadingContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 30px;
@@ -46,12 +45,13 @@ export const HeadingContainer = styled.div`
     height: 100px;
   }
 `
-export const IconContainer = styled.div`
+export const GamingIconContainer = styled.div`
   border-radius: 100%;
-  padding: 20px;
+  padding: 22px 20px 18px 20px;
   background-color: ${props => props.color};
 `
-export const TrendingHeading = styled.h1`
+
+export const GamingHeading = styled.h1`
   font-family: 'Roboto';
   color: ${props => props.color};
 `
@@ -62,9 +62,10 @@ export const LoaderContainer = styled.div`
   align-items: center;
   height: 70vh;
 `
-export const TrendingListContainer = styled.ul`
+export const GamingListContainer = styled.ul`
   list-style-type: none;
   padding-left: 0px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 `
