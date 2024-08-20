@@ -15,8 +15,8 @@ export const ListItem = styled.li`
 `
 
 export const CardImage = styled.img`
-  min-width: 200px;
-  max-width: 576px;
+  width: 50%;
+  max-height: 350px;
   @media screen and (max-width: 576px) {
     width: 100%;
   }
@@ -25,9 +25,9 @@ export const ChannelDetailsContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 0px 20px 10px 20px;
-  width: 100%;
+  width: 50%;
   @media screen and (max-width: 576px) {
-    max-width: 576px;
+    width: 100%;
   }
 `
 
@@ -51,19 +51,20 @@ export const ChannelDetails = styled.div`
 export const ChannelTitle = styled.p`
   font-size: 20px;
   margin-bottom: 0px;
-  width: 350px;
   font-weight: bold;
   color: ${props => props.color};
 `
 export const ChannelName = styled.p`
   font-size: 16px;
+  font-weight: 500;
   margin-bottom: 0px;
-  color: #909090;
+  color: #64748b;
 `
 
 export const ViewsAndDate = styled.p`
   font-size: 14px;
-  color: #909090;
+  color: #64748b;
+  font-weight: 500;
 `
 export const Dot = styled.span`
   width: 20px;

@@ -11,7 +11,6 @@ export const VideoListCard = styled.li`
   flex-direction: column;
   align-self: center;
   margin-bottom: 40px;
-
   margin-right: 20px;
   @media screen and (min-width: 767px) {
     width: 300px;

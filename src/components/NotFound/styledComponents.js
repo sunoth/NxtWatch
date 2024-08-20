@@ -10,7 +10,7 @@ export const NotFoundContainer = styled.div`
 
 export const NotFoundCard = styled.div`
   display: flex;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   padding-top: 80px;
 `
@@ -19,6 +19,7 @@ export const NotFoundLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 20%;
+  height: 100%;
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -28,7 +29,7 @@ export const NotFoundRightContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100%;
   width: 100%;
   background-color: ${props => props.bgColor};
   @media screen and (min-width: 767px) {

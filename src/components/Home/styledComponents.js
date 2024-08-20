@@ -10,13 +10,14 @@ export const AppHomeContainer = styled.div`
 export const HomeContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding-top: 80px;
 `
 export const HomeLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 20%;
+  height: 100%;
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -25,7 +26,7 @@ export const HomeRightContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 90vh;
+  height: 100%;
   overflow-y: auto;
   background-color: ${props => props.bgColor};
   @media screen and (min-width: 767px) {

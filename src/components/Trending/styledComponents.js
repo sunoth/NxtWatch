@@ -10,13 +10,14 @@ export const AppTrendingContainer = styled.div`
 export const TrendingContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding-top: 80px;
 `
 export const TrendingLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 20%;
+  height: 100%;
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -27,7 +28,7 @@ export const TrendingRightContainer = styled.div`
   width: 100%;
   flex-direction: column;
   background-color: ${props => props.bgColor};
-  height: 90vh;
+  height: 100%;
   overflow-y: auto;
   @media screen and (min-width: 767px) {
     width: 80%;
@@ -39,6 +40,7 @@ export const HeadingContainer = styled.div`
   align-items: center;
   padding: 30px;
   padding-left: 40px;
+  width: 100%;
   height: 130px;
   gap: 25px;
   background-color: ${props => props.color};
