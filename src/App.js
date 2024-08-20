@@ -10,11 +10,13 @@ import NxtWatchContext from './context/NxtWatchContext'
 import Trending from './components/Trending'
 import Gaming from './components/Gaming'
 import NotFound from './components/NotFound'
+import VideoItemDetails from './components/VideoItemDetails'
 
 class App extends Component {
   state = {
     isDarkTheme: false,
     activeTab: 'Home',
+    savedVideos: [],
   }
 
   toggleTheme = () => {
@@ -25,16 +27,29 @@ class App extends Component {
     this.setState({activeTab: tab})
   }
 
+  addVideo = video => {
+    const {savedVideos} = this.state
+    const index = savedVideos.findIndex(eachVideo => eachVideo.id === video.id)
+    if (index === -1) {
+      this.setState({savedVideos: [...savedVideos, video]})
+    } else {
+      savedVideos.splice(index, 1)
+      this.setState({savedVideos})
+    }
+  }
+
   render() {
-    const {activeTab, isDarkTheme} = this.state
+    const {activeTab, isDarkTheme, savedVideos} = this.state
 
     return (
       <NxtWatchContext.Provider
         value={{
           changeActiveTab: this.changeActiveTab,
           toggleTheme: this.toggleTheme,
+          addVideo: this.addVideo,
           activeTab,
           isDarkTheme,
+          savedVideos,
         }}
       >
         <Switch>
@@ -42,6 +57,11 @@ class App extends Component {
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/trending" component={Trending} />
           <ProtectedRoute exact path="/gaming" component={Gaming} />
+          <ProtectedRoute
+            exact
+            path="/videos/:id"
+            component={VideoItemDetails}
+          />
           <Route path="/not-found" component={NotFound} />
           <Redirect to="not-found" />
         </Switch>

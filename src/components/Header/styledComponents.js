@@ -128,6 +128,7 @@ export const PopupContainer = styled.div`
 `
 export const PopupBgContainer = styled.div`
   background-color: #cccccc;
+  opacity: 0.9;
   min-height: 100vh;
   min-width: 100vw;
   display: flex;

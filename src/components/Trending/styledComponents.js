@@ -27,7 +27,7 @@ export const TrendingRightContainer = styled.div`
   width: 100%;
   flex-direction: column;
   background-color: ${props => props.bgColor};
-  height: 88vh;
+  height: 90vh;
   overflow-y: auto;
   @media screen and (min-width: 767px) {
     width: 80%;

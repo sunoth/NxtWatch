@@ -28,6 +28,7 @@ export const NotFoundRightContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 90vh;
   width: 100%;
   background-color: ${props => props.bgColor};
   @media screen and (min-width: 767px) {

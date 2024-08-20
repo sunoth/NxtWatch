@@ -50,7 +50,7 @@ class Trending extends Component {
     const response = await fetch(apiUrl, options)
     if (response.ok) {
       const fetchedData = await response.json()
-      console.log(fetchedData)
+      //   console.log(fetchedData)
       const updatedData = fetchedData.videos.map(eachVideo => ({
         id: eachVideo.id,
         channelName: eachVideo.channel.name,

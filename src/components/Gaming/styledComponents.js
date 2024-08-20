@@ -28,7 +28,7 @@ export const GamingRightContainer = styled.div`
   width: 100%;
   background-color: ${props => props.bgColor};
   overflow-y: auto;
-  height: 88vh;
+  height: 90vh;
   @media screen and (min-width: 767px) {
     width: 80%;
   }

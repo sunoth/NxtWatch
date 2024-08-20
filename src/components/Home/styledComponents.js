@@ -25,7 +25,7 @@ export const HomeRightContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 88vh;
+  height: 90vh;
   overflow-y: auto;
   background-color: ${props => props.bgColor};
   @media screen and (min-width: 767px) {
