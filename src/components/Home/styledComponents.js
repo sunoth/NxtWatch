@@ -34,6 +34,7 @@ export const HomeRightContainer = styled.div`
   }
 `
 export const BannerContainer = styled.div`
+  display: flex;
   justify-content: space-between;
   padding: 10px;
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');

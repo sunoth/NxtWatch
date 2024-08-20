@@ -1,3 +1,4 @@
+import {differenceInYears} from 'date-fns'
 import {
   VideoCardLink,
   VideoListCard,
@@ -23,6 +24,10 @@ const VideoCard = props => {
     name,
     profileImageUrl,
   } = video
+  //   const yearsText = formatDistanceToNow(new Date(publishedAt))
+  //   console.log(yearsText)
+  const years = differenceInYears(new Date(), new Date(publishedAt))
+  //   console.log(years)
 
   return (
     <NxtWatchContext.Consumer>
@@ -41,7 +46,7 @@ const VideoCard = props => {
                   <VideoTitle color={textColor}>{title}</VideoTitle>
                   <ChannelName color={channelTextColor}>{name}</ChannelName>
                   <ViewsDate color={channelTextColor}>
-                    {viewCount} views <Dot> &#8226; </Dot> {publishedAt}
+                    {viewCount} views <Dot> &#8226; </Dot> {years} years ago
                   </ViewsDate>
                 </ProfileDetailsContainer>
               </VideoDetails>

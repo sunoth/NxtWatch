@@ -10,13 +10,14 @@ export const AppVideoItemDetailsContainer = styled.div`
 export const VideoItemDetailsContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding-top: 80px;
 `
 export const VideoItemDetailsLeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 20%;
+  height: 100%;
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -25,7 +26,7 @@ export const VideoItemDetailsRightContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 88vh;
+  height: 100%;
   overflow-y: auto;
   background-color: ${props => props.bgColor};
   @media screen and (min-width: 767px) {
@@ -35,11 +36,13 @@ export const VideoItemDetailsRightContainer = styled.div`
 export const ReactPlayerContainer = styled.div`
   width: 100%;
   padding: 20px;
+  height: 370px;
   padding-bottom: 0px;
   @media screen and (max-width: 767px) {
     background-color: #000000;
     padding-left: 0px;
     padding-right: 0px;
+    height: 330px;
   }
 `
 export const VideoDetailsContainer = styled.div`
@@ -48,7 +51,7 @@ export const VideoDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const PlayVideoTitle = styled.h1`
+export const PlayVideoTitle = styled.p`
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 16px;

@@ -37,7 +37,7 @@ export const ContactContainer = styled.div`
   padding-left: 20px;
   padding-right: 30px;
 `
-export const ContactHeading = styled.h1`
+export const ContactHeading = styled.p`
   font-size: 18px;
   color: ${props => props.color};
   font-weight: 500;

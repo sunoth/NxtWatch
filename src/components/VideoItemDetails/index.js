@@ -2,7 +2,8 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {BiLike, BiDislike, BiListPlus} from 'react-icons/bi'
-import ReactPlayer from 'react-player/youtube'
+import ReactPlayer from 'react-player'
+import {differenceInYears} from 'date-fns'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import {
   AppVideoItemDetailsContainer,
@@ -127,6 +128,7 @@ class VideoItemDetails extends Component {
             subscriberCount,
             profileImageUrl,
           } = videoItemDetails
+          const years = differenceInYears(new Date(), new Date(publishedAt))
 
           const onSaveVideo = () => {
             addVideo(videoItemDetails)
@@ -149,7 +151,12 @@ class VideoItemDetails extends Component {
           return (
             <>
               <ReactPlayerContainer>
-                <ReactPlayer url={videoUrl} controls width="100%" />
+                <ReactPlayer
+                  url={videoUrl}
+                  controls
+                  width="100%"
+                  height="100%"
+                />
               </ReactPlayerContainer>
               <VideoDetailsContainer>
                 <PlayVideoTitle color={themeColor}>{title}</PlayVideoTitle>
@@ -157,7 +164,7 @@ class VideoItemDetails extends Component {
                   <VideoViewAndPlayStatus>
                     {viewsCount}
                     <Dot> &#8226;</Dot>
-                    {publishedAt}
+                    {years} years ago
                   </VideoViewAndPlayStatus>
                   <SocialButtonsContainer>
                     <SocialButton color={likeColor} onClick={this.onLikeVideo}>
@@ -225,7 +232,7 @@ class VideoItemDetails extends Component {
       <NxtWatchContext.Consumer>
         {value => {
           const {isDarkTheme} = value
-          const appBgColor = isDarkTheme ? '#000000' : '#f9f9f9'
+          const appBgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
           const backgroundColor = isDarkTheme ? '#181818' : '#ffffff'
 
           return (

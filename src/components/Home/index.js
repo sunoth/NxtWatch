@@ -41,7 +41,7 @@ const apiStatusConstants = {
 
 class Home extends Component {
   state = {
-    bannerDisplay: 'flex',
+    bannerVisible: true,
     searchInput: '',
     homeVideos: [],
     apiStatus: apiStatusConstants.initial,
@@ -87,7 +87,7 @@ class Home extends Component {
   }
 
   onCloseBanner = () => {
-    this.setState({bannerDisplay: 'none'})
+    this.setState({bannerVisible: false})
   }
 
   onChangeSearch = event => {
@@ -128,7 +128,7 @@ class Home extends Component {
           No Search results found
         </NoVideosHeading>
         <NoVideosDescription noteColor={noteColor}>
-          Try different Keywords or remove search filter
+          Try different key words or remove search filter
         </NoVideosDescription>
         <RetryButton type="button" onClick={this.onRetry}>
           Retry
@@ -161,50 +161,51 @@ class Home extends Component {
   }
 
   render() {
-    const {bannerDisplay, searchInput} = this.state
+    const {bannerVisible, searchInput} = this.state
 
     return (
       <NxtWatchContext.Consumer>
         {value => {
           const {isDarkTheme} = value
-          const appBgColor = isDarkTheme ? '#000000' : '#f9f9f9'
+          const appBgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
           const backgroundColor = isDarkTheme ? '#181818' : '#ffffff'
-          const display = bannerDisplay === 'flex' ? 'flex' : 'none'
-
           const headingColor = isDarkTheme ? '#f1f5f9' : '#1e293b'
           const noteColor = isDarkTheme ? '#e2e8f0' : '#475569'
 
           return (
-            <AppHomeContainer bgColor={backgroundColor}>
+            <AppHomeContainer data-testid="home" bgColor={backgroundColor}>
               <Header />
               <HomeContainer>
                 <HomeLeftContainer>
                   <Navigation />
                 </HomeLeftContainer>
-                <HomeRightContainer data-testid="home" bgColor={appBgColor}>
-                  <BannerContainer display={display}>
-                    <BannerLeftContainer>
-                      <BannerImage
-                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                        alt="nxt watch logo"
-                      />
-                      <BannerDescription>
-                        Buy Nxt Watch Premium prepaid plans with UPI
-                      </BannerDescription>
-                      <BannerGetNowButton type="button">
-                        GET IT NOW
-                      </BannerGetNowButton>
-                    </BannerLeftContainer>
-                    <BannerRightContainer>
-                      <BannerCloseButton
-                        data-testid="close"
-                        onClick={this.onCloseBanner}
-                        type="button"
-                      >
-                        <AiOutlineClose size={20} />
-                      </BannerCloseButton>
-                    </BannerRightContainer>
-                  </BannerContainer>
+                <HomeRightContainer bgColor={appBgColor}>
+                  {bannerVisible && (
+                    <BannerContainer data-testid="banner">
+                      <BannerLeftContainer>
+                        <BannerImage
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                          alt="nxt watch logo"
+                        />
+                        <BannerDescription>
+                          Buy Nxt Watch Premium prepaid plans with UPI
+                        </BannerDescription>
+                        <BannerGetNowButton type="button">
+                          GET IT NOW
+                        </BannerGetNowButton>
+                      </BannerLeftContainer>
+                      <BannerRightContainer>
+                        <BannerCloseButton
+                          data-testid="close"
+                          onClick={this.onCloseBanner}
+                          type="button"
+                        >
+                          <AiOutlineClose size={20} />
+                        </BannerCloseButton>
+                      </BannerRightContainer>
+                    </BannerContainer>
+                  )}
+
                   <SearchContainer>
                     <SearchInput
                       type="search"
@@ -214,6 +215,7 @@ class Home extends Component {
                       onKeyDown={this.onKeyDownSearch}
                     />
                     <SearchIconContainer
+                      type="button"
                       onClick={this.onClickGetResults}
                       data-testid="searchButton"
                     >

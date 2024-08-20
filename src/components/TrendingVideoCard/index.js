@@ -1,3 +1,4 @@
+import {differenceInYears} from 'date-fns'
 import NxtWatchContext from '../../context/NxtWatchContext'
 import {
   ListItem,
@@ -24,6 +25,9 @@ const TrendingVideoCard = props => {
     viewCount,
   } = trendingVideoDetails
 
+  const years = differenceInYears(new Date(), new Date(publishedAt))
+  //   console.log(years)
+
   return (
     <NxtWatchContext.Consumer>
       {value => {
@@ -40,7 +44,7 @@ const TrendingVideoCard = props => {
                   <ChannelTitle color={titleColor}>{title}</ChannelTitle>
                   <ChannelName>{channelName}</ChannelName>
                   <ViewsAndDate>
-                    {viewCount} views <Dot> &#8226; </Dot> {publishedAt}
+                    {viewCount} views <Dot> &#8226; </Dot> {years} years ago
                   </ViewsAndDate>
                 </ChannelDetails>
               </ChannelDetailsContainer>

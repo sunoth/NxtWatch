@@ -120,7 +120,7 @@ class Gaming extends Component {
       <NxtWatchContext.Consumer>
         {value => {
           const {isDarkTheme} = value
-          const appBgColor = isDarkTheme ? '#000000' : '#f9f9f9'
+          const appBgColor = isDarkTheme ? '#0f0f0f' : '#f9f9f9'
           const backgroundColor = isDarkTheme ? '#181818' : '#ffffff'
 
           return (
